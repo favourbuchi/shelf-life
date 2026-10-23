@@ -25,7 +25,7 @@ export default function App() {
   const totalItems = items.length
   // - Calculate completed items count (use items.filter(...).length)
   const completedItems = items.filter((item) => item.isRead).length
-  console.log(completedItems)
+  // console.log(completedItems)
 
   // TASK 4: Form Submit Handler
   // - Prevent default browser form refresh
@@ -61,7 +61,7 @@ export default function App() {
         if (item.id === id) {
           return {
           ...item,
-          isRead: true 
+          isRead: !item.isRead 
           }          
         } else return item
         
@@ -82,7 +82,7 @@ export default function App() {
   }
 
   // console.log(title, rating)
-  console.log(items);
+  // console.log(items);
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 flex items-center justify-center p-6 font-sans">
@@ -151,7 +151,7 @@ export default function App() {
           */}
           {items.map((item, index) => {
             return (
-              <li  key={index} className="flex items-center justify-between bg-slate-950 border border-slate-800/80 rounded-xl px-4 py-3 text-sm">
+              <li  key={item.id} className="flex items-center justify-between bg-slate-950 border border-slate-800/80 rounded-xl px-4 py-3 text-sm">
                 <div className="flex items-center gap-3">
                   <button
                     type="button"
